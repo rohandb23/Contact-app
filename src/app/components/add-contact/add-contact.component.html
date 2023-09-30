@@ -1,0 +1,77 @@
+<!-- <div class="container">
+    <app-navbar></app-navbar>
+</div> -->
+<div class="container mt-3">
+    <div class="card">
+        <div class="card-body">
+            <div class="container d-flex justify-content-center align-items-center">
+                <h1>Add New Contact</h1>
+            </div>
+            <form [formGroup]="addContactForm" (ngSubmit)="onSubmit()">
+                <div class="form-group m-2 p-0.5">
+                    <label for="username">Enter Name</label>
+                    <input type="text" class="form-control" id="name" placeholder="Enter name" formControlName="name">
+                    <span class="form-text" *ngIf="addContactForm.get('name')?.hasError('required') && addContactForm.get('name')?.touched">Name is required</span>
+                </div>
+                <div class="form-group m-2 p-0.5">
+                    <label for="email">Enter Email</label>
+                    <input type="text" class="form-control" id="email" placeholder="Enter email" formControlName="email">
+                    <span class="form-text" *ngIf="addContactForm.get('email')?.hasError('required') && addContactForm.get('email')?.touched">Email is required</span>
+                    <span class="form-text" *ngIf="addContactForm.get('email')?.hasError('email') && addContactForm.get('email')?.touched">email is not valid</span>
+                </div>
+                <div class="form-group m-2 p-0.5">
+                    <label for="username">Enter Mobile Number</label>
+                    <input type="text" class="form-control" id="number" placeholder="Enter Mobile Number" formControlName="number">
+                    <span class="form-text" *ngIf="addContactForm.get('number')?.hasError('required') && addContactForm.get('number')?.touched">Mobile number is required</span>
+                </div>
+                <div class="form-group m-2 p-0.5">
+                    <label for="username">Enter Profile Photo URL</label>
+                    <input type="text" class="form-control" id="profilePhoto" placeholder="Enter Profile Photo URL" formControlName="profilePhoto">
+                    <span class="form-text" *ngIf="addContactForm.get('profilePhoto')?.hasError('required') && addContactForm.get('profilePhoto')?.touched">profile photo is required</span>
+                </div>
+                <div class="form-group m-2 p-0.5">
+                    <label for="username">Enter Company</label>
+                    <input type="text" class="form-control" id="company" placeholder="Enter Company" formControlName="company">
+                </div>
+                <div class="form-group m-2 p-0.5">
+                    <label for="username">Enter Job Title</label>
+                    <input type="text" class="form-control" id="jobTitle" placeholder="Enter Job Title" formControlName="jobTitle">
+                    <span class="form-text" *ngIf="addContactForm.get('jobTitle')?.hasError('required') && addContactForm.get('jobTitle')?.touched">Job Title is required</span>
+                </div>
+                <div class="form-group m-2 p-0.5">
+                    <label for="username">Select group</label>
+                    <select class="form-select" name="group" id="group" formControlName="group" >
+                        <option *ngFor="let group of groups"value="{{group.id}}">{{group.name}}</option>
+                        <!-- <option value="family">family</option>
+                        <option value="friend">friend</option>
+                        <option value="colleague">colleague</option>
+                        <option value="school">school</option>
+                        <option value="college">college</option> -->
+                    </select>
+                    <span class="form-text" *ngIf="addContactForm.get('profilePhoto')?.hasError('required') && addContactForm.get('profilePhoto')?.touched">profile photo is required</span>
+                </div>
+                <div class="row">
+                    <!-- <div class="col-md-3"></div> -->
+                    <div class="col-md-4 text-center">
+                        <a routerLink="/contacts/admin">
+                            <button class="btn btn-danger">
+                                <i class="fa fa-arrow-left mx-1"></i> Back
+                            </button>
+                        </a>
+                    </div>
+                    <div class="col-md-4 text-center">
+                        <button type="button" class="btn btn-secondary" (click)="onClear()">
+                            <i class="fa fa-eraser mx-1"></i> Clear
+                        </button>
+                    </div>
+                    <div class="col-md-4 text-center">
+                        <button type="submit" class="btn btn-success">
+                            <i class="fa fa-plus-circle mx-1"></i> Add
+                        </button>
+                    </div>
+                </div>
+                <div class="col-md-3"></div>
+            </form>
+        </div>
+    </div>
+</div>

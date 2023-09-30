@@ -1,0 +1,65 @@
+<div class="container mt-2" *ngIf="loading">
+    <app-spinner></app-spinner>
+</div>
+<div class="container mt-2 border border-danger text-danger" *ngIf="!loading && errorMessage">
+    {{errorMessage}} could not load data..please try again later
+</div>
+<div class="container mt-3">
+    <div class="row">
+        <div class="col">
+            <p class="h5 fw-bold">Add new Contact
+                <a routerLink="/contacts/add">
+                    <button class="btn btn-sm btn-primary">
+                        <i class="fa fa-plus-circle mx-1"></i>Add
+                    </button>
+                </a>
+            </p>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-md-4">
+            <input type="text" class="form-control" placeholder="Search user" #search>
+        </div>
+        <div class="col">
+            <button class="btn btn-success" (click)="onSearch(search.value)">
+                <i class="fa fa-search mx-2"></i>Search
+            </button>
+        </div>
+    </div>
+</div>
+<div class="container mt-4">
+    <div class="row">
+        <div class="col-md-6 my-2"  *ngFor="let c of filteredContacts">
+            <div class="card">
+                <div class="card-body shadow-lg">
+                    <div class="row align-items-center">
+                        <div class="col-sm-4">
+                            <img class="mario" src="{{c.photo}}">
+                        </div>
+                        <div class="col-sm-8">
+                            <ul class="list-group">
+                                <li class="list-group-item bg-light"><span class="fw-bold">Name : </span> {{c.name}}</li>
+                                <li class="list-group-item bg-light"><span class="fw-bold">Email : </span> {{c.email}}</li>
+                                <li class="list-group-item bg-light"><span class="fw-bold">Mobile : </span> {{c.mobile}}</li>
+                            </ul>
+                            <div class="col mt-3">
+                                <a routerLink="/contacts/view/{{c.id}}">
+                                    <button class="btn btn-success mx-1">
+                                        <i class="fa fa-eye mx-2"></i>View
+                                    </button>
+                                </a>
+                                <a routerLink="/contacts/edit/{{c.id}}">
+                                    <button class="btn btn-secondary mx-1">
+                                        <i class="fa fa-edit mx-2"></i>Update
+                                    </button>
+                                </a>
+                                <button class="btn btn-danger mx-1" (click)="onDelete(c.id)">
+                                    <i class="fa fa-trash mx-2"></i>Delete</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

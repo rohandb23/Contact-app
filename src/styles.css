@@ -1,1 +1,17 @@
-/* You can add global styles to this file, and also import other style files */
+.mario{
+    height : 150px;
+    width : 150px;
+    border: 2px solid black;
+    border-radius: 50%;
+}
+
+.contactimg{
+    height : 50px;
+    width : 50px;
+}
+
+.marioview{
+    height : 200px;
+    width : 200px;
+    border-radius: 50%;
+}

@@ -1,0 +1,45 @@
+<!-- <div class="container">
+    <app-navbar></app-navbar>
+</div> -->
+<div class="container mt-2" *ngIf="loading">
+    <app-spinner></app-spinner>
+</div>
+<div class="container mt-2 border border-danger text-danger" *ngIf="!loading && errorMessage">
+    {{errorMessage}} could not load data..please try again later
+</div>
+<div class="container mt-4 justify-content-center">
+    <div class="row">
+        <div class="col-md-3 my-2"></div>
+        <div class="col-md-6 my-2">
+            <div class="card text-center">  
+                <div class="card-body shadow-lg">
+                    <div class="row align-items-center">
+                        <div class="col-sm-3"></div>
+                        <div class="col-sm-4 align-items-center">
+                            <img class="marioview mx-3" src="{{contact.photo}}">
+                        </div>
+                    </div>
+                    <div class="row align-content-center mt-3">
+                        <div class="col-md-2"></div>
+                        <div class="col-md-8">
+                            <ul class="list-group">
+                                <li class="list-group-item bg-light"><span class="fw-bold">ID : </span> {{contactId}}</li>
+                                <li class="list-group-item bg-light"><span class="fw-bold">Name : </span> {{contact.name}}</li>
+                                <li class="list-group-item bg-light"><span class="fw-bold">Email : </span> {{contact.email}}</li>
+                                <li class="list-group-item bg-light"><span class="fw-bold">Mobile : </span> {{contact.mobile}}</li>
+                                <li class="list-group-item bg-light"><span class="fw-bold">Job Title : </span> {{contact.title}}</li>
+                                <li class="list-group-item bg-light"><span class="fw-bold">Company : </span> {{contact.company}}</li>
+                                <li class="list-group-item bg-light"><span class="fw-bold">Group : </span> {{groupName}}</li>
+                            </ul>
+                            <a routerLink="/contacts/admin">
+                                <button class="btn btn-danger mt-2">
+                                    <i class="fa fa-arrow-left"></i> Back
+                                </button>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

@@ -1,0 +1,69 @@
+<!-- <div class="container">
+    <app-navbar></app-navbar>
+</div> -->
+<div class="container mt-3">
+    <div class="card">
+        <div class="card-body">
+            <div class="container d-flex justify-content-center align-items-center">
+                <h1>Update Contact</h1>
+            </div>
+            <form [formGroup]="updateContactForm" (ngSubmit)="onSubmit()">
+                <div class="form-group m-2 p-0.5">
+                    <label for="username">Update Name</label>
+                    <input type="text" class="form-control" id="name" placeholder="Enter name" formControlName="name">
+                    <span class="form-text" *ngIf="updateContactForm.get('name')?.hasError('required') && updateContactForm.get('name')?.touched">Name is required</span>
+                </div>
+                <div class="form-group m-2 p-0.5">
+                    <label for="email">Update Email</label>
+                    <input type="text" class="form-control" id="email" placeholder="Enter email" formControlName="email">
+                    <span class="form-text" *ngIf="updateContactForm.get('email')?.hasError('required') && updateContactForm.get('email')?.touched">Email is required</span>
+                    <span class="form-text" *ngIf="updateContactForm.get('email')?.hasError('email') && updateContactForm.get('email')?.touched">Email is not valid</span>
+                </div>
+                <div class="form-group m-2 p-0.5">
+                    <label for="username">Update Mobile Number</label>
+                    <input type="text" class="form-control" id="number" placeholder="Enter Mobile Number" formControlName="mobile">
+                    <span class="form-text" *ngIf="updateContactForm.get('mobile')?.hasError('required') && updateContactForm.get('mobile')?.touched">Mobile number is required</span>
+                </div>
+                <div class="form-group m-2 p-0.5">
+                    <label for="username">Update Profile Photo URL</label>
+                    <input type="text" class="form-control" id="photo" placeholder="Enter Profile Photo URL" formControlName="photo">
+                    <span class="form-text" *ngIf="updateContactForm.get('photo')?.hasError('required') && updateContactForm.get('photo')?.touched">profile photo is required</span>
+                </div>
+                <div class="form-group m-2 p-0.5">
+                    <label for="username">Update Company</label>
+                    <input type="text" class="form-control" id="company" placeholder="Enter Company" formControlName="company">
+                </div>
+                <div class="form-group m-2 p-0.5">
+                    <label for="username">Update Job Title</label>
+                    <input type="text" class="form-control" id="title" placeholder="Enter Job Title" formControlName="title">
+                    <span class="form-text" *ngIf="updateContactForm.get('title')?.hasError('required') && updateContactForm.get('title')?.touched">Job Title is required</span>
+                </div>
+                <div class="form-group m-2 p-0.5">
+                    <label for="username">Update group</label>
+                    <select class="form-select" name="group" id="group" formControlName="group">
+                        <!-- <option value="{{groupName}}" selected>{{groupName}}</option> -->
+                        <option *ngFor="let group of groups" [value]="group.id">{{group.name}}</option>
+                       
+                    </select>
+                    <span class="form-text" *ngIf="updateContactForm.get('photo')?.hasError('required') && updateContactForm.get('photo')?.touched">profile photo is required</span>
+                </div>
+                <div class="row">
+                    <div class="col-md-3"></div>
+                    <div class="col-md-3 text-center">
+                        <a routerLink="/contacts/admin">
+                            <button type="button" class="btn btn-danger">
+                                <i class="fa fa-times mx-1"></i> Cancel
+                            </button>
+                        </a>
+                    </div>
+                    <div class="col-md-3 text-center">
+                        <button type="submit" class="btn btn-success">
+                            <i class="fa fa-edit mx-1"></i> Update
+                        </button>
+                    </div>
+                </div>
+                <div class="col-md-3"></div>
+            </form>
+        </div>
+    </div>
+</div>
